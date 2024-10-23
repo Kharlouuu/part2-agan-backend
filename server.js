@@ -1,4 +1,5 @@
-// server.js
+
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -10,7 +11,7 @@ const PORT = process.env.PORT || 5173;
 
 const databaseURL = 'mongodb+srv://karlharloudb:aganharlou1@user-add-product.uold0.mongodb.net/?retryWrites=true&w=majority'
 
-// Middleware
+//Both connected
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -25,7 +26,7 @@ mongoose.connect(databaseURL, {
 // Routes
 app.use('/api/products', productRoutes);
 
-// Start server
+// Server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
