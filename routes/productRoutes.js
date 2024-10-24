@@ -14,7 +14,7 @@ router.get('/api/products', async (req, res) => {
 });
 
 // GET
-router.get('/:id', async (req, res) => {
+router.get('/api/products/:id', async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
     if (!product) return res.status(404).json({ message: 'Product not found' });
@@ -25,7 +25,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Create a new product
-router.post('/', async (req, res) => {
+router.post('/api/products', async (req, res) => {
   const product = new Product({
     product_code: req.body.product_code,
     name: req.body.name,
@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
 });
 
 // Update
-router.put('/:id', async (req, res) => {
+router.put('/api/products/:id', async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
     if (!product) return res.status(404).json({ message: 'Product not found' });
@@ -64,7 +64,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // Delete a product using ID
-router.delete('/:id', async (req, res) => {
+router.delete('/api/products/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const deletedProduct = await Product.findByIdAndDelete(id);
