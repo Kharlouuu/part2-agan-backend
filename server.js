@@ -24,7 +24,7 @@ mongoose.connect(databaseURL, {
 .catch(err => console.error(err));
 
 // Routes
-app.use('/api/products', productRoutes);
+app.use('/', productRoutes);
 
 // Server
 app.listen(PORT, () => {
